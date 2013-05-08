@@ -1,20 +1,4 @@
-<%- if bundler? -%>
-require 'rspec/core/rake_task'
-RSpec::Core::RakeTask.new
-<%- else -%>
-begin
-  gem 'rspec', '<%= @development_dependencies['rspec'] %>'
-  require 'rspec/core/rake_task'
-
-  RSpec::Core::RakeTask.new
-rescue LoadError => e
-  task :spec do
-    abort "Please run `gem install rspec` to install RSpec."
-  end
+RSpec::Core::RakeTask.new(:current) do |spec|
+	spec.pattern = 'spec/*/*_spec.rb'
+	spec.rspec_opts = ['--tag current']
 end
-<%- end -%>
-
-task :test => :spec
-task :default => :spec
-
-puts 'hey im here'

@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require 'thor'
+require '<%= @namespace %>'
+
+class <%= @namespace %>Runner < Thor
+
+	desc "blah", "blah for the project"
+	def blah
+		puts "blah"
+	end
+end
+<%= @namespace %>Runner.start
