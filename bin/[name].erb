@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'thor'
-require '<%= @namespace %>'
+require '<%= @namespace.downcase %>'
 
 class <%= @namespace %>Runner < Thor
 
@@ -10,4 +10,5 @@ class <%= @namespace %>Runner < Thor
 		puts "blah"
 	end
 end
+
 <%= @namespace %>Runner.start
